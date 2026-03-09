@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا - Happy Paws</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7ff; /* أزرق فاتح */
+      margin: 0;
+      padding: 0;
+      perspective: 1000px;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      border-bottom: 3px solid #a0dfff;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    header nav a, header nav button {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #007acc;
+      font-size: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    header nav button {
+      font-size: 18px;
+    }
+
+    .contact-info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 25px;
+      padding: 50px 10%;
+    }
+    .contact-info-cards .card {
+      background: #ffffffcc;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .contact-info-cards .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .contact-info-cards h3 {
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+    .contact-info-cards p {
+      color: #333;
+      font-size: 16px;
+    }
+
+    .contact-form-card {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #ffffffcc;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transform: rotateX(2deg) rotateY(-2deg);
+      transition: transform 0.3s;
+    }
+    .contact-form-card:hover {
+      transform: rotateX(0deg) rotateY(0deg) scale(1.02);
+    }
+    .contact-form-card h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007acc;
+    }
+
+    .contact-form-card form input,
+    .contact-form-card form textarea,
+    .contact-form-card form button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #00aaff;
+      box-shadow: 0 6px 10px rgba(0,170,255,0.2);
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
+    .contact-form-card form input:focus,
+    .contact-form-card form textarea:focus {
+      outline: none;
+      border-color: #007acc;
+      box-shadow: 0 8px 15px rgba(0,122,204,0.3);
+      transform: translateZ(5px);
+    }
+    .contact-form-card form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .contact-form-card form button {
+      background: #00aaff;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 8px 15px rgba(0,170,255,0.4);
+    }
+    .contact-form-card form button:hover {
+      background: #007acc;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,122,204,0.5);
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 15px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 12px;
+      margin-top: 15px;
+      font-weight: bold;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Night Mode */
+    body.night {
+      background: #001f2f;
+      color: #eee;
+    }
+    body.night .contact-info-cards .card,
+    body.night .contact-form-card {
+      background: #00334dcc;
+      color: #eee;
+      box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+    }
+    body.night .contact-form-card form input,
+    body.night .contact-form-card form textarea {
+      background: #004466;
+      border: 1px solid #007acc;
+      color: #eee;
+      box-shadow: 0 6px 10px rgba(0,122,204,0.2);
+    }
+    body.night header {
+      background: #00334d;
+      color: #eee;
+      border-bottom: 3px solid #007acc;
+      box-shadow: 0 2px 12px rgba(255,255,255,0.05);
+    }
+    body.night header nav a,
+    body.night header nav button {
+      color: #00aaff;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Happy Paws</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="facilities.html">المرافق والخدمات</a>
+    <a href="booking.html">الحجز</a>
+    <a href="reviews.html">التقييمات</a>
+    <a href="contact.html">اتصل بنا</a>
+    <button id="lang-toggle">EN</button>
+    <button id="mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<section class="contact-info-cards">
+  <div class="card">
+    <h3 data-i18n="address">العنوان</h3>
+    <p data-i18n="addressText">الدوار السابع ، عمّان، الأردن</p>
+  </div>
+  <div class="card">
+    <h3 data-i18n="emailTitle">البريد الإلكتروني</h3>
+    <p data-i18n="emailText">happydog1@gmail.com</p>
+  </div>
+  <div class="card">
+    <h3 data-i18n="phoneTitle">رقم الهاتف</h3>
+    <p data-i18n="phoneText">+962 7 76789263</p>
+  </div>
+</section>
+
+<section class="contact-form-card">
+  <h2 data-i18n="formTitle">راسلنا</h2>
+  <form id="contact-form">
+    <input type="text" placeholder="الاسم" required data-i18n-placeholder="name">
+    <input type="email" placeholder="البريد الإلكتروني" required data-i18n-placeholder="email">
+    <textarea rows="5" placeholder="رسالتك" required data-i18n-placeholder="message"></textarea>
+    <button type="submit" data-i18n="submitBtn">إرسال</button>
+    <p class="success-message" data-i18n="successMsg">تم إرسال رسالتك بنجاح!</p>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy dog. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+const modeBtn = document.getElementById('mode-toggle');
+const langBtn = document.getElementById('lang-toggle');
+const body = document.body;
+
+// Night Mode
+modeBtn.addEventListener('click', () => {
+  body.classList.toggle('night');
+  modeBtn.textContent = body.classList.contains('night') ? '☀️' : '🌙';
+});
+
+// Contact Form Submit
+const contactForm = document.getElementById('contact-form');
+const successMsg = document.querySelector('.success-message');
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  successMsg.style.display = 'block';
+  contactForm.reset();
+});
+
+// Translations
+const translations = {
+  ar: {
+    address: "العنوان",
+    addressText: "شارع السعادة 123، عمّان، الأردن",
+    emailTitle: "البريد الإلكتروني",
+    emailText: "info@happypaws.com",
+    phoneTitle: "رقم الهاتف",
+    phoneText: "+962 7 1234 5678",
+    formTitle: "راسلنا",
+    name: "الاسم",
+    email: "البريد الإلكتروني",
+    message: "رسالتك",
+    submitBtn: "إرسال",
+    successMsg: "تم إرسال رسالتك بنجاح!"
+  },
+  en: {
+    address: "Address",
+    addressText: "123 Happiness St, Amman, Jordan",
+    emailTitle: "Email",
+    emailText: "info@happypaws.com",
+    phoneTitle: "Phone",
+    phoneText: "+962 7 1234 5678",
+    formTitle: "Contact Us",
+    name: "Name",
+    email: "Email",
+    message: "Message",
+    submitBtn: "Send",
+    successMsg: "Your message has been sent successfully!"
+  }
+};
+
+let currentLang = 'ar';
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  langBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+
+  // Translate elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(translations[currentLang][key]){
+      el.textContent = translations[currentLang][key];
+    }
+  });
+
+  // Translate placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(translations[currentLang][key]){
+      el.placeholder = translations[currentLang][key];
+    }
+  });
+});
+</script>
+
+</body>
+</html>

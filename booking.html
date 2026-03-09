@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الحجز - Happy dog</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #e0f7ff;
+    margin: 0;
+    padding: 0;
+    perspective: 1000px;
+  }
+  header {
+    background: #fff;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    border-bottom: 3px solid #a0dfff;
+  }
+  header .logo { font-size: 24px; font-weight: bold; color: #007acc; }
+  header nav a, header nav button {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #007acc;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .booking {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #ffffffcc;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: rotateX(2deg) rotateY(-2deg);
+    transition: transform 0.3s;
+  }
+  .booking:hover { transform: rotateX(0deg) rotateY(0deg) scale(1.02); }
+  .booking h1 { text-align: center; margin-bottom: 25px; color: #007acc; }
+  .booking form input,
+  .booking form textarea,
+  .booking form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #00aaff;
+    box-sizing: border-box;
+  }
+  .booking form button { background: #00aaff; color: #fff; font-size: 18px; cursor: pointer; }
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 15px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 12px;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Happy dog</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="facilities.html">المرافق والخدمات</a>
+    <a href="booking.html">الحجز</a>
+    <a href="reviews.html">التقييمات</a>
+    <a href="contact.html">اتصل بنا</a>
+  </nav>
+</header>
+
+<section class="booking">
+  <h1>احجز إقامة لكلبك</h1>
+  <form id="booking-form">
+    <input type="text" placeholder="اسم المالك" name="owner" required>
+    <input type="email" placeholder="البريد الإلكتروني" name="email" required>
+    <input type="tel" placeholder="رقم الهاتف" name="phone" required>
+    <input type="text" placeholder="اسم الكلب" name="dog" required>
+    <input type="date" name="checkin" required>
+    <input type="date" name="checkout" required>
+    <textarea placeholder="ملاحظات إضافية" name="notes"></textarea>
+    <button type="submit">احجز الآن</button>
+  </form>
+  <div id="booking-success" class="success-message">تم إرسال طلب الحجز بنجاح! 🌟</div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy dog. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+  // Form submission
+  const form = document.getElementById('booking-form');
+  const successMsg = document.getElementById('booking-success');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    successMsg.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

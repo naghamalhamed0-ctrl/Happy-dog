@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المرافق والخدمات - Happy dog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7ff; /* أزرق فاتح */
+      margin: 0;
+      padding: 0;
+      perspective: 1000px;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      border-bottom: 3px solid #a0dfff;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #007acc;
+    }
+
+    header nav a, header nav button {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #007acc;
+      font-size: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    header nav button {
+      font-size: 18px;
+    }
+
+    .facilities {
+      padding: 50px 10%;
+      text-align: center;
+    }
+    .facilities h1 {
+      color: #007acc;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #ffffffcc;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      transform-style: preserve-3d;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03) rotateX(2deg) rotateY(-2deg);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    .card h3 {
+      color: #007acc;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .card p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      background: #f5f5f5;
+      margin-top: 50px;
+    }
+
+    /* Night Mode */
+    body.night {
+      background: #001f2f;
+      color: #eee;
+    }
+    body.night header {
+      background: #00334d;
+      border-bottom: 3px solid #007acc;
+    }
+    body.night header nav a,
+    body.night header nav button,
+    body.night .logo {
+      color: #00aaff;
+    }
+    body.night .card {
+      background: #00334dcc;
+      color: #eee;
+      box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" data-i18n="logo">Happy Paws</div>
+  <nav>
+    <a href="index.html" data-i18n="home">الرئيسية</a>
+    <a href="about.html" data-i18n="about">من نحن</a>
+    <a href="facilities.html" data-i18n="facilities">المرافق والخدمات</a>
+    <a href="booking.html" data-i18n="booking">الحجز</a>
+    <a href="reviews.html" data-i18n="reviews">التقييمات</a>
+    <a href="contact.html" data-i18n="contact">اتصل بنا</a>
+    <button id="lang-toggle">EN</button>
+    <button id="mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<section class="facilities">
+  <h1 data-i18n="facTitle">مرافقنا وخدماتنا</h1>
+  <div class="cards">
+    <div class="card">
+      <img src="image/home.jpg" alt="غرف مريحة">
+      <h3 data-i18n="suiteTitle">أجنحة فاخرة</h3>
+      <p data-i18n="suiteDesc">مساحات واسعة ومريحة لكلابكم.</p>
+    </div>
+    <div class="card">
+      <img src="image/play.jpg" alt="مناطق لعب">
+      <h3 data-i18n="playTitle">مناطق لعب خارجية</h3>
+      <p data-i18n="playDesc">مساحات آمنة للعب والمرح.</p>
+    </div>
+    <div class="card">
+      <img src="image/cut.jpg" alt="تصفيف الشعر">
+      <h3 data-i18n="groomTitle">التجميل والاستحمام</h3>
+      <p data-i18n="groomDesc">رعاية كاملة للمظهر والنظافة.</p>
+    </div>
+    <div class="card">
+      <img src="image/doog.jpg" alt="تدريب">
+      <h3 data-i18n="trainTitle">تدريب الكلاب</h3>
+      <p data-i18n="trainDesc">جلسات تدريب مخصصة وسهلة.</p>
+    </div>
+    <div class="card">
+      <img src="image/hos.jpg" alt="رعاية صحية">
+      <h3 data-i18n="vetTitle">رعاية صحية أساسية</h3>
+      <p data-i18n="vetDesc">إشراف بيطري لضمان صحة كلبك.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy dog. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+const modeBtn = document.getElementById('mode-toggle');
+const langBtn = document.getElementById('lang-toggle');
+const body = document.body;
+
+// Night Mode Toggle
+modeBtn.addEventListener('click', () => {
+  body.classList.toggle('night');
+  modeBtn.textContent = body.classList.contains('night') ? '☀️' : '🌙';
+});
+
+// Language Toggle
+const translations = {
+  ar: {
+    logo: "Happy dog",
+    home: "الرئيسية",
+    about: "من نحن",
+    facilities: "المرافق والخدمات",
+    booking: "الحجز",
+    reviews: "التقييمات",
+    contact: "اتصل بنا",
+    facTitle: "مرافقنا وخدماتنا",
+    suiteTitle: "أجنحة فاخرة",
+    suiteDesc: "مساحات واسعة ومريحة لكلابكم.",
+    playTitle: "مناطق لعب خارجية",
+    playDesc: "مساحات آمنة للعب والمرح.",
+    groomTitle: "التجميل والاستحمام",
+    groomDesc: "رعاية كاملة للمظهر والنظافة.",
+    trainTitle: "تدريب الكلاب",
+    trainDesc: "جلسات تدريب مخصصة وسهلة.",
+    vetTitle: "رعاية صحية أساسية",
+    vetDesc: "إشراف بيطري لضمان صحة كلبك."
+  },
+  en: {
+    logo: "Happy dog",
+    home: "Home",
+    about: "About Us",
+    facilities: "Facilities & Services",
+    booking: "Booking",
+    reviews: "Reviews",
+    contact: "Contact Us",
+    facTitle: "Our Facilities & Services",
+    suiteTitle: "Luxury Suites",
+    suiteDesc: "Spacious and comfortable for your dogs.",
+    playTitle: "Outdoor Play Areas",
+    playDesc: "Safe spaces for fun and play.",
+    groomTitle: "Grooming & Bathing",
+    groomDesc: "Full care for appearance and hygiene.",
+    trainTitle: "Dog Training",
+    trainDesc: "Custom and easy training sessions.",
+    vetTitle: "Basic Health Care",
+    vetDesc: "Veterinary supervision to ensure your dog's health."
+  }
+};
+
+let currentLang = 'ar';
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  langBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(translations[currentLang][key]){
+      el.textContent = translations[currentLang][key];
+    }
+  });
+});
+</script>
+
+</body>
+</html>

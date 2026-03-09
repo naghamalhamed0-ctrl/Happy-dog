@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التقييمات - Happy Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">Happy Paws</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="facilities.html">المرافق والخدمات</a>
+    <a href="booking.html">الحجز</a>
+    <a href="reviews.html">التقييمات</a>
+    <a href="contact.html">اتصل بنا</a>
+    <button id="lang-toggle">EN</button>
+    <button id="mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<section class="reviews">
+  <h1>آراء عملائنا</h1>
+
+  <!-- التعليقات الموجودة مسبقًا -->
+  <div id="reviews-container">
+    <div class="review-card">
+      <h3>أحلام</h3>
+      <p>الخدمة رائعة وكلبي سعيد حقًا! ⭐⭐⭐⭐⭐</p>
+    </div>
+    <div class="review-card">
+      <h3>إسلام</h3>
+      <p>الفندق ممتاز والمرافق مريحة وجميلة وآمنة جدًا. ⭐⭐⭐⭐⭐</p>
+    </div>
+  </div>
+
+  <!-- نموذج إضافة تقييم -->
+  <div class="review-form-card">
+    <h2>أضف تقييمك</h2>
+    <form id="review-form">
+      <input type="text" id="username" placeholder="اسمك" required>
+      <textarea id="user-review" placeholder="اكتب رأيك هنا..." required></textarea>
+      <label for="rating">اختر عدد النجوم:</label>
+      <select id="rating" required>
+        <option value="">اختر</option>
+        <option value="⭐">⭐</option>
+        <option value="⭐⭐">⭐⭐</option>
+        <option value="⭐⭐⭐">⭐⭐⭐</option>
+        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+      </select>
+      <button type="submit">أضف تقييمك</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy Paws. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+  // إضافة تقييم جديد
+  const form = document.getElementById('review-form');
+  const reviewsContainer = document.getElementById('reviews-container');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const reviewText = document.getElementById('user-review').value;
+    const rating = document.getElementById('rating').value;
+
+    if(username && reviewText && rating) {
+      const reviewCard = document.createElement('div');
+      reviewCard.classList.add('review-card');
+      reviewCard.innerHTML = `
+        <h3>${username}</h3>
+        <p>${reviewText} ${rating}</p>
+      `;
+      reviewsContainer.prepend(reviewCard);
+      form.reset();
+    }
+  });
+
+  // تبديل الوضع الداكن والفاتح
+  const modeToggle = document.getElementById('mode-toggle');
+  const body = document.body;
+
+  modeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // تغيير أيقونة الزر
+    if(body.classList.contains('dark-mode')) {
+      modeToggle.textContent = '☀️';
+    } else {
+      modeToggle.textContent = '🌙';
+    }
+  });
+</script>
+</body>
+</html>

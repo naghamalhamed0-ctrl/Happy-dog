@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من نحن - Happy Paws</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+  /* Hero Section */
+  .hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+    background:#f5f5f5;
+    flex-wrap: wrap;
+  }
+  .hero img{
+    width:300px;
+    max-width:90%;
+    animation:floatDog 4s ease-in-out infinite;
+  }
+  @keyframes floatDog{
+    0%{transform:translateY(0px) rotate(0deg);}
+    50%{transform:translateY(-15px) rotate(3deg);}
+    100%{transform:translateY(0px) rotate(0deg);}
+  }
+  .hero-text{
+    margin-right:40px;
+    text-align:right;
+    max-width:400px;
+  }
+  .hero-text h1{
+    font-size:40px;
+    margin-bottom:10px;
+  }
+  .hero-text p{
+    font-size:18px;
+    line-height:1.7;
+    color:#555;
+  }
+
+  /* About Section */
+  .about{
+    padding:60px 10%;
+    text-align:center;
+  }
+  .about h1{
+    font-size:40px;
+    margin-bottom:20px;
+    color:#333;
+  }
+  .about p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#555;
+  }
+
+  /* Story Section */
+  .story{
+    margin-top:70px;
+    padding:40px;
+    background:#f9f9f9;
+    border-radius:15px;
+  }
+  .story h2{
+    font-size:30px;
+    margin-bottom:15px;
+  }
+  .story p{
+    max-width:750px;
+    margin:auto;
+    line-height:1.9;
+    color:#555;
+  }
+
+  /* Team Cards */
+  .team-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+    margin-top:50px;
+  }
+  .card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.4s;
+  }
+  .card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  }
+  .card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+  }
+  .card h3{
+    margin-top:15px;
+    font-size:22px;
+    color:#222;
+  }
+  .card p{
+    padding:10px 15px 20px;
+    font-size:16px;
+    color:#666;
+  }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:20px 10px;
+    background:#f5f5f5;
+    margin-top:50px;
+  }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Happy Paws</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="facilities.html">المرافق والخدمات</a>
+    <a href="booking.html">الحجز</a>
+    <a href="reviews.html">التقييمات</a>
+    <a href="contact.html">اتصل بنا</a>
+    <button id="lang-toggle">EN</button>
+    <button id="mode-toggle">🌙</button>
+  </nav>
+</header>
+
+<!-- Hero Section مع الصورة الجديدة -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>مرحبا بكم في Happy dog</h1>
+    <p>المكان المثالي لراحة وسعادة كلبك مع فريق متخصص وخدمات فندقية مميزة للحيوانات الأليفة</p>
+  </div>
+  <img src="image/mm.jpg" alt="Dog">
+</section>
+
+<section class="about">
+
+<h1>عن فندق Happy dog</h1>
+
+<p>
+هدفنا هو توفير رعاية مميزة لكلبك في بيئة آمنة ومريحة
+يعمل فريقنا المتخصص على الاهتمام بجميع احتياجات الكلاب
+وتقديم أفضل خدمة ممكنة
+</p>
+
+<div class="story">
+<h2>قصتنا</h2>
+<p>
+بدأ Happy dog بحب كبير للحيوانات ورغبة في إنشاء مكان
+يشعر فيه الكلب بالراحة والسعادة أثناء غياب أصحابه
+نحن نوفر إقامة مريحة وأنشطة ممتعة ورعاية صحية
+لضمان أفضل تجربة لكل كلب
+</p>
+</div>
+
+<div class="team-cards">
+
+<div class="card">
+<img src="image/tala.jpg" alt="تالا">
+<h3>تالا</h3>
+<p>مديرة الفندق وخبيرة تدريب كلاب</p>
+</div>
+
+<div class="card">
+<img src="image/download (8).jpg" alt="ايمان">
+<h3>ايمان</h3>
+<p>خبيرة تدريب كلاب</p>
+</div>
+
+<div class="card">
+<img src="image/adm.jpg" alt="ادم">
+<h3>ادم</h3>
+<p>مساعد مدرب وخبير بالحيوانات</p>
+</div>
+
+<div class="card">
+<img src="image/mohand.jpg" alt="مهند">
+<h3>مهند</h3>
+<p>طبيب بيطري</p>
+</div>
+
+<div class="card">
+<img src="image/ibrahem.jpg" alt="ابراهيم">
+<h3>ابراهيم</h3>
+<p>مشرف رعاية الكلاب والأنشطة اليومية</p>
+</div>
+
+<div class="card">
+<img src="image/zainab.jpg" alt="زينب">
+<h3>زينب</h3>
+<p>أخصائية تغذية ورعاية صحية للحيوانات</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+  <p>&copy; 2026 Happy dog. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
